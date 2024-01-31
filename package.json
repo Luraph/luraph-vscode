@@ -3,7 +3,7 @@
   "displayName": "Luraph (vscode)",
   "publisher": "luraph",
   "description": "Obfuscate scripts via the Luraph API from the comfort of your editor.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "memcorrupt",
   "license": "MIT",
   "engines": {

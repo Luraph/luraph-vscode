@@ -1,8 +1,8 @@
 # luraph-vscode
 
-[![Version](https://img.shields.io/visual-studio-marketplace/v/luraph-luraph-vscode.svg)](https://marketplace.visualstudio.com/items?itemName=luraph.luraph-vscode)
+[![Version](https://img.shields.io/visual-studio-marketplace/v/luraph.luraph-vscode.svg)](https://marketplace.visualstudio.com/items?itemName=luraph.luraph-vscode)
 [![Downloads](https://img.shields.io/visual-studio-marketplace/d/luraph.luraph-vscode.svg)](https://marketplace.visualstudio.com/items?itemName=luraph.luraph-vscode)
-[![Build Status](https://github.com/Luraph/luraph-vscode/actions/workflows/release.yml/badge.svg)](https://github.com/Luraph/luraph-vscode/actions)
+[![Build Status](https://github.com/Luraph/luraph-vscode/actions/workflows/release.yml/badge.svg)](https://github.com/Luraph/luraph-vscode/actions/release.yml)
 [![License](https://img.shields.io/github/license/Luraph/luraph-vscode)](LICENSE)
 
 Obfuscate files via the Luraph API from the comfort of your VS Code editor.
