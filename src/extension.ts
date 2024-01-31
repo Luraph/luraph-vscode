@@ -1,4 +1,4 @@
-import { Luraph } from "luraph";
+import { Luraph, type LuraphOptionList } from "luraph";
 import * as vscode from "vscode";
 
 const TIER_ICONS = {
@@ -139,7 +139,7 @@ export function activate(context: vscode.ExtensionContext) {
 			log(`> Selected node: ${nodeId}`);
 			log("> Available options:");
 
-			const optionValues = {};
+			const optionValues: LuraphOptionList = {};
 			const checkboxes: (vscode.QuickPickItem & {id: string})[] = [];
 			const dropdowns = [];
 			const textFields = [];
