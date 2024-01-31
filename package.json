@@ -3,7 +3,7 @@
   "displayName": "Luraph (vscode)",
   "publisher": "luraph",
   "description": "Obfuscate scripts via the Luraph API from the comfort of your editor.",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": "memcorrupt",
   "license": "MIT",
   "engines": {
@@ -30,6 +30,12 @@
   "files": [
     "out/**/*"
   ],
+  "capabilities": {
+    "untrustedWorkspaces": {
+      "supported": true
+    },
+    "virtualWorkspaces": true
+  },
   "contributes": {
     "commands": [
       {
@@ -52,15 +58,15 @@
     }
   },
   "scripts": {
-    "vscode:prepublish": "pnpm run compile",
+    "vscode:prepublish": "yarn run compile",
     "compile": "tsc -p ./ || echo WARNING: tsc exited with errors",
     "watch": "tsc -watch -p ./",
-    "pretest": "pnpm run compile && pnpm run lint",
+    "pretest": "yarn run compile && yarn run lint",
     "lint": "eslint src --ext ts",
     "test": "vscode-test",
-    "preinstall": "npx only-allow pnpm",
-    "deploy": "vsce publish --no-dependencies",
-    "package": "vsce package --no-dependencies"
+    "preinstall": "npx only-allow yarn",
+    "deploy": "npx vsce publish",
+    "package": "npx vsce package"
   },
   "dependencies": {
     "luraph": "^2.0.3"

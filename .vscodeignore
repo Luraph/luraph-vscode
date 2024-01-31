@@ -4,7 +4,8 @@
 
 # Include only what's needed
 !out/**/extension.js
-!LICENSE
+!node_modules
 !logo.png
-!package.json
+!LICENSE
 !README.md
+!package.json
