@@ -1,0 +1,53 @@
+name: publish to vs marketplace
+on:
+  release:
+    types: [published]
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    environment: vsce
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: 'https://registry.npmjs.org'
+      
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: latest
+        
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        run: |
+          echo "STORE_PATH=$(pnpm store path)" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/cache@v4
+        name: Setup pnpm cache
+        with:
+          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Package VSIX
+        run: pnpm run package
+
+      - name: Upload VSIX to GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+            fail_on_unmatched_files: true
+            files: *.vsix
+
+      - name: Publish to VS marketplace
+        run: pnpm run deploy
+        env:
+            VSCE_PAT: ${{ secrets.VSCE_PAT }}
