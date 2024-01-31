@@ -1,0 +1,10 @@
+# Ignore everything
+*
+*/**
+
+# Include only what's needed
+!out/**/extension.js
+!LICENSE
+!logo.png
+!package.json
+!README.md

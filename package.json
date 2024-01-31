@@ -1,0 +1,88 @@
+{
+  "name": "luraph-vscode",
+  "displayName": "Luraph (vscode)",
+  "publisher": "luraph",
+  "description": "Obfuscate scripts via the Luraph API from the comfort of your editor.",
+  "version": "0.0.1",
+  "author": "memcorrupt",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.84.2"
+  },
+  "icon": "logo.png",
+  "keywords": [
+    "luraph",
+    "obfuscate",
+    "lua obfuscator",
+    "lua",
+    "encrypt"
+  ],
+  "categories": [
+    "Other"
+  ],
+  "extensionKind": [
+    "workspace"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "files": [
+    "out/**/*"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "luraph.obfuscate",
+        "title": "Obfuscate File",
+        "category": "Luraph"
+      }
+    ],
+    "configuration": {
+      "title": "Luraph",
+      "properties": {
+        "luraph.API Key": {
+          "type": "string",
+          "markdownDescription": "API key to authenticate with the Luraph API. ([you can generate one here!](https://lura.ph/dashboard/account))",
+          "tags": [
+            "usesOnlineServices"
+          ]
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "pnpm run compile",
+    "compile": "tsc -p ./ || echo WARNING: tsc exited with errors",
+    "watch": "tsc -watch -p ./",
+    "pretest": "pnpm run compile && pnpm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "vscode-test",
+    "preinstall": "npx only-allow pnpm",
+    "deploy": "vsce publish --no-dependencies",
+    "package": "vsce package --no-dependencies"
+  },
+  "dependencies": {
+    "luraph": "^2.0.3"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.6",
+    "@types/node": "18.x",
+    "@types/vscode": "1.84.x",
+    "@typescript-eslint/eslint-plugin": "^6.19.1",
+    "@typescript-eslint/parser": "^6.19.1",
+    "@vscode/test-cli": "^0.0.4",
+    "@vscode/test-electron": "^2.3.9",
+    "@vscode/vsce": "^2.23.0",
+    "eslint": "^8.56.0",
+    "typescript": "^5.3.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Luraph/luraph-vscode.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Luraph/luraph-vscode/issues"
+  },
+  "homepage": "https://github.com/Luraph/luraph-vscode#readme"
+}
