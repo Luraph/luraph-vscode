@@ -1,6 +1,6 @@
 {
   "name": "luraph-vscode",
-  "displayName": "Luraph",
+  "displayName": "Luraph (vscode)",
   "publisher": "luraph",
   "description": "Obfuscate scripts via the Luraph API from the comfort of your editor.",
   "version": "0.0.4",
