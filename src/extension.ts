@@ -305,7 +305,12 @@ export function activate(context: vscode.ExtensionContext) {
 			const textEditor = await vscode.window.showTextDocument(newDoc);
 
 			const editsApplied = await textEditor.edit((editBuilder) => {
-				editBuilder.replace(new vscode.Position(0, 0), result.data);
+				const fullRange = new vscode.Range(
+					newDoc.lineAt(0).range.start,
+					newDoc.lineAt(newDoc.lineCount - 1).range.end
+				);
+				
+				editBuilder.replace(fullRange, result.data);
 			});
 
 			if(!editsApplied){
