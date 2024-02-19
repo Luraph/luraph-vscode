@@ -1449,10 +1449,10 @@ lru-cache@^6.0.0:
   resolved "https://registry.yarnpkg.com/lru-cache/-/lru-cache-10.2.0.tgz#0bd445ca57363465900f4d1f9bd8db343a4d95c3"
   integrity sha512-2bIM8x+VAf6JT4bKAljS1qUWgMsqZRPGJS6FSahIMPVvctcNhyVp7AJu7quxOW9jwkryBReKZY5tY5JYv2n/7Q==
 
-luraph@^2.0.6:
-  version "2.0.6"
-  resolved "https://registry.yarnpkg.com/luraph/-/luraph-2.0.6.tgz#ab9ae55c9a75be0fa77ed22c52f06fa6824ed48f"
-  integrity sha512-e3uhccuOlnFss6aOBmbXVhaoTZVyAN3+M0vv5BXUvNK4wTBhh5OBl64lj0mJir09cpNsIYnp/u8xom2buNcB0g==
+luraph@^2.0.7:
+  version "2.0.7"
+  resolved "https://registry.yarnpkg.com/luraph/-/luraph-2.0.7.tgz#356a80e15fe8705cca71556cbd9f430df5ed2f59"
+  integrity sha512-tR150wtRd+ZzwzldshpCSuXyGXrMvqeTI1mpo/MSlXbA7Sr0VxhZHff9nJ7WZZlt/IHn8uo9+y+j6PoYy7MZWQ==
   dependencies:
     undici "^6.6.2"
 
