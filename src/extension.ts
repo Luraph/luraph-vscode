@@ -460,7 +460,9 @@ export function activate(context: vscode.ExtensionContext) {
       const result = await luraphApi.downloadResult(jobId);
       log(`> Obfuscation succeeded! (${result.data.length} bytes)`);
 
-      let directory = vscode.workspace.workspaceFolders?.[0].uri.path || "";
+      // @note so workspaceFolders is null if we open file directly, but it may also be empty array if workspace is created but still no folders added/open bruh.
+      // @note til: we may have only one ?. for entire chain and it won't throw but properly return undefined 
+      let directory = vscode.workspace.workspaceFolders?.[0]?.uri.path || "";
       let resultName = document.uri.path;
       if (document.uri.scheme === "file" || document.uri.scheme === "untitled") {
         const lastSlash = resultName.lastIndexOf("/");
