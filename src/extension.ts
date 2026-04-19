@@ -25,11 +25,49 @@ export function activate(context: vscode.ExtensionContext) {
   );
   statusBarItem.command = "luraph.obfuscate";
 
-  statusBarItem.show();
+  function updateStatusBarItemVisibility(
+    editor: vscode.TextEditor | undefined
+  ) {
+    if (!editor) {
+      statusBarItem.hide();
+      return;
+    }
+
+    const lang = editor.document.languageId;
+
+    // @note only show for specific languages
+    if (lang === "lua" || lang === "plaintext") {
+      statusBarItem.show();
+    } else {
+      statusBarItem.hide();
+    }
+  }
+
+  // @note run once on activate
+  updateStatusBarItemVisibility(vscode.window.activeTextEditor);
+
+  // @note update when switching editors
+  vscode.window.onDidChangeActiveTextEditor(
+    updateStatusBarItemVisibility,
+    null,
+    context.subscriptions
+  );
+
+  // @note update when language changes (rare but possible)
+  vscode.workspace.onDidOpenTextDocument(
+    doc => {
+      if (vscode.window.activeTextEditor?.document === doc) {
+        updateStatusBarItemVisibility(vscode.window.activeTextEditor);
+      }
+    },
+    null,
+    context.subscriptions
+  );
 
   const logOutput = vscode.window.createOutputChannel("Luraph", {
     log: true,
   });
+
   const log = logOutput.info;
 
   context.subscriptions.push(statusBarItem, logOutput); //auto dispose on extension deactivation
