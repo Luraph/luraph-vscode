@@ -53,6 +53,10 @@
           "tags": [
             "usesOnlineServices"
           ]
+        },
+        "luraph.Options": {
+          "type": "object",
+          "markdownDescription": "Autofill options: automatically saves the last-used settings so you can quickly reuse the same configuration for future obfuscation runs."
         }
       }
     }
