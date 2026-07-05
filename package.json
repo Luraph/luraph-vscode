@@ -86,7 +86,7 @@
     "@vscode/vsce": "^2.24.0",
     "eslint": "^8.57.0",
     "prettier": "^3.8.3",
-    "typescript": "^5.3.3"
+    "typescript": "^6.0.3"
   },
   "repository": {
     "type": "git",
