@@ -3,7 +3,7 @@
   "displayName": "Luraph",
   "publisher": "luraph",
   "description": "Obfuscate scripts via the Luraph API from the comfort of your editor.",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "author": "memcorrupt",
   "license": "MIT",
   "engines": {
@@ -27,9 +27,6 @@
     "onStartupFinished"
   ],
   "main": "./out/extension.js",
-  "files": [
-    "out/**/*"
-  ],
   "capabilities": {
     "untrustedWorkspaces": {
       "supported": true
@@ -66,7 +63,9 @@
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
     "pretest": "yarn run compile && yarn run lint",
-    "lint": "eslint src --ext ts",
+    "lint": "eslint src",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "test": "vscode-test",
     "preinstall": "npx only-allow yarn",
     "deploy": "npx vsce publish",
@@ -76,17 +75,17 @@
     "luraph": "^2.0.9"
   },
   "devDependencies": {
-    "@types/mocha": "^10.0.6",
-    "@types/node": "18.x",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "20.x",
     "@types/vscode": "1.84.x",
-    "@typescript-eslint/eslint-plugin": "^7.0.2",
-    "@typescript-eslint/parser": "^7.0.2",
-    "@vscode/test-cli": "^0.0.6",
-    "@vscode/test-electron": "^2.3.9",
-    "@vscode/vsce": "^2.24.0",
-    "eslint": "^8.57.0",
-    "prettier": "^3.8.3",
-    "typescript": "^5.3.3"
+    "@typescript-eslint/eslint-plugin": "^8.62.1",
+    "@typescript-eslint/parser": "^8.62.1",
+    "@vscode/test-cli": "^0.0.15",
+    "@vscode/test-electron": "^3.0.0",
+    "@vscode/vsce": "^3.9.2",
+    "eslint": "^10.6.0",
+    "prettier": "^3.9.4",
+    "typescript": "^6.0.3"
   },
   "repository": {
     "type": "git",

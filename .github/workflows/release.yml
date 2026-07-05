@@ -20,13 +20,13 @@ jobs:
           cache: "yarn"
 
       - name: Install dependencies
-        run: yarn install --immutable --immutable-cache --check-cache
+        run: yarn install --frozen-lockfile
 
       - name: Package VSIX
         run: yarn run package
 
       - name: Upload VSIX to GitHub Release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
             fail_on_unmatched_files: true
             files: |

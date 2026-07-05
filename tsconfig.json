@@ -8,6 +8,10 @@
 		],
 		"sourceMap": true,
 		"rootDir": "src",
-		"strict": true
+		"strict": true,
+		"types": [
+			"node",
+			"mocha"
+		]
 	}
 }
