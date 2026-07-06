@@ -11,7 +11,7 @@ jobs:
         url: https://marketplace.visualstudio.com/items?itemName=luraph.luraph-vscode
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Setup node.js
         uses: actions/setup-node@v4
