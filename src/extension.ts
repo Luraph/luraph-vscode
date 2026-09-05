@@ -307,7 +307,7 @@ const askForOptions = async (nodeInfo: LuraphNode) => {
           ignoreFocusOut: true,
         });
 
-        if (!selectedValue) {
+        if (selectedValue === undefined) {
           throw new ExtensionActionCancel();
         }
 
